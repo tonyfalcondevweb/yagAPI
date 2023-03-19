@@ -16,14 +16,16 @@ import jakarta.persistence.ManyToOne;
 @Table(name = "compte")
 public class Compte implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
+  
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_compte")
     private Integer idCompte;
     
-    
+    @Id
     @Column(name = "nom")
     private String nom;
+    
+    
     @JoinColumns({
         @JoinColumn(name = "id_champion", referencedColumnName = "id_champion")})
     @ManyToOne(optional = false)
@@ -64,10 +66,13 @@ public class Compte implements Serializable {
     public void setChampion(Champion champion) {
         this.champion = champion;
     }
+    
+    
+    
 
-    @Override
-    public String toString() {
-        return "yagbdd.Compte[ idCompte=" + idCompte + " ]";
-    }
+	@Override
+	public String toString() {
+		return "Compte [idCompte=" + idCompte + ", nom=" + nom + "]";
+	}
     
 }

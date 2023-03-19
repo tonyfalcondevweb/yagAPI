@@ -3,17 +3,18 @@ package root.entites;
 import java.io.Serializable;
 import java.util.Collection;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "categorie")
 public class Categorie implements Serializable {
 
 
@@ -28,7 +29,7 @@ public class Categorie implements Serializable {
 	@Column(name = "nom")
 	private String nom;
 	
-
+	@JsonIgnore
     @ManyToMany(mappedBy = "categorieCollection")
     private Collection<Champion> championCollection;
     

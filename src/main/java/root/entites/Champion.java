@@ -3,6 +3,9 @@ package root.entites;
 import java.io.Serializable;
 import java.util.Collection;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,25 +33,46 @@ public class Champion implements Serializable {
 	@Column(name = "nom")
 	private String nom;
 
+	
+	@Column(name = "key_riot")
+	private Integer keyRiot;
+
+	
 	@JoinTable(name = "champion_categorie", joinColumns = {
 			@JoinColumn(name = "id_champion", referencedColumnName = "id_champion") }, inverseJoinColumns = {
 					@JoinColumn(name = "id_categorie", referencedColumnName = "id_categorie") })
 	@ManyToMany
+	@JsonIgnoreProperties({"championCollection" , "champion_categorie"})
 	private Collection<Categorie> categorieCollection;
 
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "champion")
 	private Collection<Compte> compteCollection;
 
 	public Champion() {
+		super();
 	}
 
 	public Champion(Integer idChampion) {
+		super();
 		this.idChampion = idChampion;
 	}
 
-	public Champion(Integer idChampion, String nom) {
+	public Champion(Integer idChampion, String nom, Integer keyRiot) {
+		super();
 		this.idChampion = idChampion;
 		this.nom = nom;
+		this.keyRiot = keyRiot;
+	}
+
+	public Champion(Integer idChampion, String nom, Integer keyRiot, Collection<Categorie> categorieCollection,
+			Collection<Compte> compteCollection) {
+		super();
+		this.idChampion = idChampion;
+		this.nom = nom;
+		this.keyRiot = keyRiot;
+		this.categorieCollection = categorieCollection;
+		this.compteCollection = compteCollection;
 	}
 
 	public Integer getIdChampion() {
@@ -65,6 +89,14 @@ public class Champion implements Serializable {
 
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+
+	public Integer getKeyRiot() {
+		return keyRiot;
+	}
+
+	public void setKeyRiot(Integer keyRiot) {
+		this.keyRiot = keyRiot;
 	}
 
 	public Collection<Categorie> getCategorieCollection() {
@@ -85,7 +117,7 @@ public class Champion implements Serializable {
 
 	@Override
 	public String toString() {
-		return "yagbdd.Champion[ idChampion=" + idChampion + " ]";
+		return "Champion [idChampion=" + idChampion + ", nom=" + nom + ", keyRiot=" + keyRiot + "]";
 	}
 
 }
