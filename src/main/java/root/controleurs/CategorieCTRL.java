@@ -12,7 +12,7 @@ import root.entites.Categorie;
 import root.services.CategorieService;
 
 @RestController
-@CrossOrigin(value = { "http://localhost:3000", "http://localhost:3004" , "http://localhost:5173" })
+@CrossOrigin
 public class CategorieCTRL {
 	
 	
