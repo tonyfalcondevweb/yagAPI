@@ -20,7 +20,7 @@ public class ChampionCTRL {
 	private ChampionService champServ;
 	
 	
-	
+	@CrossOrigin(origins = "https://way-one.vercel.app/")
 	@GetMapping("/yagAPI/get/champion")
 	public ResponseEntity<List<Champion>> championList() {
 		

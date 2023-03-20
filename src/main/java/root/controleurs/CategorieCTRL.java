@@ -18,6 +18,8 @@ public class CategorieCTRL {
 	@Autowired
 	private CategorieService cateServ;
 	
+	
+	@CrossOrigin(origins = "https://way-one.vercel.app/")
 	@GetMapping("/yagAPI/get/categorie")
 	public ResponseEntity<List<Categorie>> getAllCategorie() {
 
