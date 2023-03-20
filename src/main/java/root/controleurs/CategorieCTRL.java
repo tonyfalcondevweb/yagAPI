@@ -24,7 +24,6 @@ public class CategorieCTRL {
 
 		List<Categorie> categorieList = cateServ.getAllCategorie();
 		
-//		System.out.println(categorieList);
 		
 		return ResponseEntity.ok(categorieList);
 	}
