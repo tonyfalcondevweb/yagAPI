@@ -13,7 +13,7 @@ public class WebSecurityConfig {
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		
 		
-		http.cors().and().csrf().disable();
+		http.csrf().disable();
 		
 		
 		return http.build();
