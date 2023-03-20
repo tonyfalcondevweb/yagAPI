@@ -12,7 +12,6 @@ import root.entites.Champion;
 import root.services.ChampionService;
 
 @RestController
-@CrossOrigin(origins = "https://way-one.vercel.app/")
 public class ChampionCTRL {
 	
 	

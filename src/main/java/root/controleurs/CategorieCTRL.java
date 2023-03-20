@@ -12,7 +12,6 @@ import root.entites.Categorie;
 import root.services.CategorieService;
 
 @RestController
-@CrossOrigin(origins = "https://way-one.vercel.app/")
 public class CategorieCTRL {
 	
 	
