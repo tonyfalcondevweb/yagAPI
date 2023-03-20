@@ -12,7 +12,7 @@ import root.entites.Compte;
 import root.inputs.CompteInputs;
 import root.services.CompteService;
 @RestController
-@CrossOrigin(value = { "https://way-one.vercel.app/"})
+@CrossOrigin(origins = "https://way-one.vercel.app/")
 public class CompteCTRL {
 	
 	@Autowired
