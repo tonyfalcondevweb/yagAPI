@@ -12,7 +12,7 @@ import root.entites.Categorie;
 import root.services.CategorieService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(value = { "https://way-one.vercel.app/"})
 public class CategorieCTRL {
 	
 	

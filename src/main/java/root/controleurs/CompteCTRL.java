@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import root.entites.Compte;
 import root.inputs.CompteInputs;
 import root.services.CompteService;
-
 @RestController
-@CrossOrigin
+@CrossOrigin(value = { "https://way-one.vercel.app/"})
 public class CompteCTRL {
 	
 	@Autowired
