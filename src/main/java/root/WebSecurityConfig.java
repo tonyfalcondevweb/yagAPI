@@ -15,7 +15,7 @@ public class WebSecurityConfig {
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		
 		
-		http.csrf();
+		http.csrf().disable();
 		
 		
 		return http.build();

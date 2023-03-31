@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 import root.entites.Categorie;
 import root.services.CategorieService;
 
+
+//@CrossOrigin(origins = "https://way-one.vercel.app/")
+//@CrossOrigin(origins = "http://localhost:5173/")
 @RestController
 public class CategorieCTRL {
 	
@@ -19,7 +22,7 @@ public class CategorieCTRL {
 	private CategorieService cateServ;
 	
 	
-	@CrossOrigin(origins = "https://way-one.vercel.app/")
+
 	@GetMapping("/yagAPI/get/categorie")
 	public ResponseEntity<List<Categorie>> getAllCategorie() {
 

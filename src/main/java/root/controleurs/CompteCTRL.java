@@ -12,22 +12,25 @@ import root.inputs.CompteInputs;
 import root.services.CompteService;
 
 
+//@CrossOrigin(origins = "https://way-one.vercel.app/")
+//@CrossOrigin(origins = "http://localhost:5173/")
 @RestController
 public class CompteCTRL {
 	
 	@Autowired
 	private CompteService CompteServ;
 	
-	@CrossOrigin(origins = "https://way-one.vercel.app/")
+
 	@PostMapping("/yagAPI/post/compte")
 	public ResponseEntity<Compte> updateCompte(@RequestBody CompteInputs inputs){
 		
 		Compte compteUpdate = new Compte();
 		
+
 		compteUpdate = CompteServ.updateCompte(inputs);
 		
-		
-		return ResponseEntity.ok(null);
+		System.out.println(compteUpdate);
+		return ResponseEntity.ok(compteUpdate);
 	}
 
 }

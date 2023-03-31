@@ -66,13 +66,11 @@ public class Compte implements Serializable {
     public void setChampion(Champion champion) {
         this.champion = champion;
     }
-    
-    
-    
 
 	@Override
 	public String toString() {
-		return "Compte [idCompte=" + idCompte + ", nom=" + nom + "]";
-	}
+		return "Compte [idCompte=" + idCompte + ", nom=" + nom + ", champion=" + champion + "]";
+	}    
+    
     
 }

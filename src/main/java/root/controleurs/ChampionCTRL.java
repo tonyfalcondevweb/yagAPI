@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import root.entites.Champion;
 import root.services.ChampionService;
 
+//@CrossOrigin(origins = "https://way-one.vercel.app/")
+//@CrossOrigin(origins = "http://localhost:5173/")
 @RestController
 public class ChampionCTRL {
 	
@@ -20,7 +22,7 @@ public class ChampionCTRL {
 	private ChampionService champServ;
 	
 	
-	@CrossOrigin(origins = "https://way-one.vercel.app/")
+
 	@GetMapping("/yagAPI/get/champion")
 	public ResponseEntity<List<Champion>> championList() {
 		
