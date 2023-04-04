@@ -2,6 +2,8 @@ package root.entites;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,11 +28,29 @@ public class Compte implements Serializable {
     private String nom;
     
     
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "categorieCollection"})
     @JoinColumns({
         @JoinColumn(name = "id_champion", referencedColumnName = "id_champion")})
     @ManyToOne(optional = false)
     private Champion champion;
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
     public Compte() {
     }
 
@@ -42,8 +62,15 @@ public class Compte implements Serializable {
         this.idCompte = idCompte;
         this.nom = nom;
     }
+        
+    public Compte(Integer idCompte, String nom, Champion champion) {
+		super();
+		this.idCompte = idCompte;
+		this.nom = nom;
+		this.champion = champion;
+	}
 
-    public Integer getIdCompte() {
+	public Integer getIdCompte() {
         return idCompte;
     }
 

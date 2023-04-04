@@ -1,10 +1,10 @@
 package root.controleurs;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,5 +32,15 @@ public class ChampionCTRL {
 		return ResponseEntity.ok(champList);		
 	}
 
+	@GetMapping("/yagAPI/get/champion/classement")
+	public ResponseEntity <List<Map<String, Object>>> getClassement(){
+		
+		
+
+		List<Map<String, Object>> classement = champServ.getClassement();
+		
+
+		return ResponseEntity.ok(classement);
+	}
 
 }

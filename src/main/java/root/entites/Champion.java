@@ -30,12 +30,16 @@ public class Champion implements Serializable {
 	@Column(name = "id_champion")
 	private Integer idChampion;
 
+	
 	@Column(name = "nom")
 	private String nom;
 
 	
 	@Column(name = "key_riot")
 	private Integer keyRiot;
+	
+	
+
 
 	
 	@JoinTable(name = "champion_categorie", joinColumns = {
@@ -48,15 +52,22 @@ public class Champion implements Serializable {
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "champion")
 	private Collection<Compte> compteCollection;
-
+	
+	
 	public Champion() {
 		super();
 	}
 
-	public Champion(Integer idChampion) {
+
+
+
+	public Champion(String nom) {
 		super();
-		this.idChampion = idChampion;
+		this.nom = nom;
 	}
+
+
+
 
 	public Champion(Integer idChampion, String nom, Integer keyRiot) {
 		super();
@@ -64,6 +75,9 @@ public class Champion implements Serializable {
 		this.nom = nom;
 		this.keyRiot = keyRiot;
 	}
+
+
+
 
 	public Champion(Integer idChampion, String nom, Integer keyRiot, Collection<Categorie> categorieCollection,
 			Collection<Compte> compteCollection) {
@@ -74,6 +88,9 @@ public class Champion implements Serializable {
 		this.categorieCollection = categorieCollection;
 		this.compteCollection = compteCollection;
 	}
+
+
+
 
 	public Integer getIdChampion() {
 		return idChampion;
@@ -115,9 +132,16 @@ public class Champion implements Serializable {
 		this.compteCollection = compteCollection;
 	}
 
+
+
+
 	@Override
 	public String toString() {
-		return "Champion [idChampion=" + idChampion + ", nom=" + nom + ", keyRiot=" + keyRiot + "]";
+		return "Champion [idChampion=" + idChampion + ", nom=" + nom + ", keyRiot=" + keyRiot + ", categorieCollection="
+				+ categorieCollection + "]";
 	}
+
+
+	
 
 }
