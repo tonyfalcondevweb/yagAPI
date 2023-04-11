@@ -6,9 +6,12 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import root.entites.Champion;
+import root.inputs.ChampionInputs;
 import root.services.ChampionService;
 
 //@CrossOrigin(origins = "https://way-one.vercel.app/")
@@ -41,6 +44,17 @@ public class ChampionCTRL {
 		
 
 		return ResponseEntity.ok(classement);
+	}
+	
+	@PostMapping("/yagAPI/post/champion/add")
+	public ResponseEntity <Champion> postChampionAdd(@RequestBody ChampionInputs inputs){
+		
+		
+		Champion champAdd = champServ.postChampionAdd(inputs);
+		
+		
+
+		return ResponseEntity.ok(champAdd);
 	}
 
 }

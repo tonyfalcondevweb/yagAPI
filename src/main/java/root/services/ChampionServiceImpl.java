@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import root.entites.Champion;
+import root.inputs.ChampionInputs;
 import root.repository.ChampionRepository;
 
 @Service
@@ -45,5 +46,22 @@ public class ChampionServiceImpl implements ChampionService {
 		}
 
 		return result;
+	}
+	
+	
+	public Champion postChampionAdd (ChampionInputs inputs) {
+		
+		
+		Champion champAdd = new Champion();
+		
+		champAdd.setNom(inputs.getNom());
+		champAdd.setKeyRiot(inputs.getKeyRiot());
+		champAdd.setCategorieCollection(inputs.getCategorieCollection());
+		
+		ChampionRep.save(champAdd);
+
+
+		
+		return champAdd;
 	}
 }
