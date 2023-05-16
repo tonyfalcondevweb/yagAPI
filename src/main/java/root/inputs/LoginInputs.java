@@ -3,21 +3,28 @@ package root.inputs;
 public class LoginInputs {
 	
 	
-	private String keyLog;
+	private String nom;
 
-	public String getKeyLog() {
-		return keyLog;
+	private String interneKey;
+
+	public String getNom() {
+		return nom;
 	}
 
-	public void setKeyLog(String keyLog) {
-		this.keyLog = keyLog;
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getInterneKey() {
+		return interneKey;
+	}
+
+	public void setInterneKey(String interneKey) {
+		this.interneKey = interneKey;
 	}
 
 	@Override
 	public String toString() {
-		return "LoginInputs [keyLog=" + keyLog + "]";
+		return "LoginInputs [nom=" + nom + ", interneKey=" + interneKey + "]";
 	}
-	
-	
-
 }

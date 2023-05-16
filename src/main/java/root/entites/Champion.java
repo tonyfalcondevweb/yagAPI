@@ -13,6 +13,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.JoinTable;
@@ -53,93 +54,77 @@ public class Champion implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "champion")
 	private Collection<Compte> compteCollection;
 	
+    @JoinColumn(name = "id_interne", referencedColumnName = "id_interne")
+    @ManyToOne
+    private Interne idInterne;
 	
-	public Champion() {
-		super();
-	}
+	
+    public Champion() {
+    }
+
+    public Champion(Integer idChampion) {
+        this.idChampion = idChampion;
+    }
+
+    public Champion(Integer idChampion, String nom) {
+        this.idChampion = idChampion;
+        this.nom = nom;
+    }
+
+    public Integer getIdChampion() {
+        return idChampion;
+    }
+
+    public void setIdChampion(Integer idChampion) {
+        this.idChampion = idChampion;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public Integer getKeyRiot() {
+        return keyRiot;
+    }
+
+    public void setKeyRiot(Integer keyRiot) {
+        this.keyRiot = keyRiot;
+    }
+
+    public Collection<Categorie> getCategorieCollection() {
+        return categorieCollection;
+    }
+
+    public void setCategorieCollection(Collection<Categorie> categorieCollection) {
+        this.categorieCollection = categorieCollection;
+    }
+
+    public Interne getIdInterne() {
+        return idInterne;
+    }
+
+    public void setIdInterne(Interne idInterne) {
+        this.idInterne = idInterne;
+    }
+
+    public Collection<Compte> getCompteCollection() {
+        return compteCollection;
+    }
+
+    public void setCompteCollection(Collection<Compte> compteCollection) {
+        this.compteCollection = compteCollection;
+    }
 
 
 
-
-	public Champion(String nom) {
-		super();
-		this.nom = nom;
-	}
-
-
-
-
-	public Champion(Integer idChampion, String nom, Integer keyRiot) {
-		super();
-		this.idChampion = idChampion;
-		this.nom = nom;
-		this.keyRiot = keyRiot;
-	}
-
-
-
-
-	public Champion(Integer idChampion, String nom, Integer keyRiot, Collection<Categorie> categorieCollection,
-			Collection<Compte> compteCollection) {
-		super();
-		this.idChampion = idChampion;
-		this.nom = nom;
-		this.keyRiot = keyRiot;
-		this.categorieCollection = categorieCollection;
-		this.compteCollection = compteCollection;
-	}
-
-
-
-
-	public Integer getIdChampion() {
-		return idChampion;
-	}
-
-	public void setIdChampion(Integer idChampion) {
-		this.idChampion = idChampion;
-	}
-
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public Integer getKeyRiot() {
-		return keyRiot;
-	}
-
-	public void setKeyRiot(Integer keyRiot) {
-		this.keyRiot = keyRiot;
-	}
-
-	public Collection<Categorie> getCategorieCollection() {
-		return categorieCollection;
-	}
-
-	public void setCategorieCollection(Collection<Categorie> categorieCollection) {
-		this.categorieCollection = categorieCollection;
-	}
-
-	public Collection<Compte> getCompteCollection() {
-		return compteCollection;
-	}
-
-	public void setCompteCollection(Collection<Compte> compteCollection) {
-		this.compteCollection = compteCollection;
-	}
-
-
-
-
-	@Override
-	public String toString() {
-		return "Champion [idChampion=" + idChampion + ", nom=" + nom + ", keyRiot=" + keyRiot + ", categorieCollection="
-				+ categorieCollection + "]";
-	}
+    @Override
+    public String toString() {
+        return "wayimport.Champion[ idChampion=" + idChampion + " ]";
+    }
 
 
 	
