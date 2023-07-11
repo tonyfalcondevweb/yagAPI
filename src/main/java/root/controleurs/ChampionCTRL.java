@@ -58,11 +58,19 @@ public class ChampionCTRL {
 
 		if (okAdmin.isPresent()) {
 
-			Champion champAdd = champServ.postChampionAdd(inputs);
+			try {
 
-			return ResponseEntity.ok(champAdd);
+				Champion champAdd = champServ.postChampionAdd(inputs);
 
-		} else {
+				return ResponseEntity.ok(champAdd);
+
+			} catch (Exception ex) {
+				throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, ex.getMessage());
+			}
+
+		} else
+
+		{
 			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "accès refusé");
 		}
 

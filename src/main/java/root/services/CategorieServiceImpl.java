@@ -22,8 +22,7 @@ public class CategorieServiceImpl implements CategorieService{
 	
 	public List<Categorie> getAllCategorie () {
 		
-		List<Categorie> categorieList = categorieRep.findAll(Sort.by("idCategorie"));
-		
+		List<Categorie> categorieList = categorieRep.findAll(Sort.by("idCategorie"));		
 		
 		return categorieList;
 		

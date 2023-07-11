@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import root.entites.Champion;
 import root.inputs.ChampionInputs;
 import root.repository.ChampionRepository;
+import root.security.Regex;
 
 @Service
 public class ChampionServiceImpl implements ChampionService {
@@ -49,8 +50,9 @@ public class ChampionServiceImpl implements ChampionService {
 	}
 	
 	
-	public Champion postChampionAdd (ChampionInputs inputs) {
+	public Champion postChampionAdd (ChampionInputs inputs) throws Exception {
 		
+		Boolean erreur = false;
 		
 		Champion champAdd = new Champion();
 		
@@ -58,8 +60,26 @@ public class ChampionServiceImpl implements ChampionService {
 		champAdd.setKeyRiot(inputs.getKeyRiot());
 		champAdd.setCategorieCollection(inputs.getCategorieCollection());
 		
-		ChampionRep.save(champAdd);
+		if (
+				champAdd.getKeyRiot() instanceof Integer
+				&& champAdd.getNom().matches(Regex.regexAlpha)
+				&& !champAdd.getCategorieCollection().isEmpty()
 
+			){
+			
+			ChampionRep.save(champAdd);
+
+			
+		}
+		else {
+			erreur = true;
+
+		}
+
+	
+		if (erreur == true) {			
+			throw new Exception("Erreur sur la mise a jour des champions");			
+		}
 
 		
 		return champAdd;

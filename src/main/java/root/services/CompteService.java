@@ -6,6 +6,6 @@ import root.inputs.CompteInputs;
 
 public interface CompteService {
 	
-	public Compte updateCompte (CompteInputs inputs);
+	public Compte updateCompte (CompteInputs inputs) throws Exception;
 
 }

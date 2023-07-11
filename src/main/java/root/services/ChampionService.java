@@ -12,5 +12,5 @@ public interface ChampionService {
 	
 	public List<Champion> getAllChampion ();
 	public List<Map<String, Object>> getClassement ();
-	public Champion postChampionAdd (ChampionInputs inputs);
+	public Champion postChampionAdd (ChampionInputs inputs) throws Exception ;
 }
